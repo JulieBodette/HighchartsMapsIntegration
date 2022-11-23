@@ -184,29 +184,7 @@ public int index = 0;
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            //make continents red
-            this.widget1.Options.colorAxis = new
-            {
-                tickPixelInterval = 100,
-                minColor = "#F88379",
-                maxColor = "#C41E3A",
-                max = 1000
-            };
-        }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            //make continents green
-            this.widget1.Options.colorAxis = new
-            {
-                tickPixelInterval = 100,
-                minColor = "#BFCFAD",
-                maxColor = "#31784B",
-                max = 1000
-            };
-        }
 
         private void button8_Click(object sender, EventArgs e)
         {
@@ -244,11 +222,7 @@ public int index = 0;
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             //maximum color
-            //textbox to change the color
-            AlertBox.Show("new color");
             setContinentColor();
-
-
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
