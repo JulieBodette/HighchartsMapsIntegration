@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page1));
-            Wisej.Web.Widget.Package package1 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package2 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package3 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package4 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package9 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package10 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package11 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package12 = new Wisej.Web.Widget.Package();
             this.widget1 = new Wisej.Web.Widget();
             this.label1 = new Wisej.Web.Label();
             this.button1 = new Wisej.Web.Button();
@@ -48,6 +48,8 @@
             this.button8 = new Wisej.Web.Button();
             this.button9 = new Wisej.Web.Button();
             this.textBox2 = new Wisej.Web.TextBox();
+            this.textBox3 = new Wisej.Web.TextBox();
+            this.textBox4 = new Wisej.Web.TextBox();
             this.SuspendLayout();
             // 
             // widget1
@@ -57,18 +59,18 @@
             this.widget1.Location = new System.Drawing.Point(248, 114);
             this.widget1.Name = "widget1";
             this.widget1.Options = ((Wisej.Core.DynamicObject)(Wisej.Core.WisejSerializer.Parse("{}")));
-            package1.Name = "highmaps";
-            package1.Source = "https://code.highcharts.com/maps/highmaps.js";
-            package2.Name = "data.";
-            package2.Source = "https://code.highcharts.com/maps/modules/data.js";
-            package3.Name = "exporting";
-            package3.Source = "https://code.highcharts.com/maps/modules/exporting.js";
-            package4.Name = "accessibility";
-            package4.Source = "https://code.highcharts.com/maps/modules/accessibility.js";
-            this.widget1.Packages.Add(package1);
-            this.widget1.Packages.Add(package2);
-            this.widget1.Packages.Add(package3);
-            this.widget1.Packages.Add(package4);
+            package9.Name = "highmaps";
+            package9.Source = "https://code.highcharts.com/maps/highmaps.js";
+            package10.Name = "data.";
+            package10.Source = "https://code.highcharts.com/maps/modules/data.js";
+            package11.Name = "exporting";
+            package11.Source = "https://code.highcharts.com/maps/modules/exporting.js";
+            package12.Name = "accessibility";
+            package12.Source = "https://code.highcharts.com/maps/modules/accessibility.js";
+            this.widget1.Packages.Add(package9);
+            this.widget1.Packages.Add(package10);
+            this.widget1.Packages.Add(package11);
+            this.widget1.Packages.Add(package12);
             this.widget1.Size = new System.Drawing.Size(751, 492);
             this.widget1.TabIndex = 0;
             this.widget1.Text = "widget1";
@@ -102,11 +104,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1045, 299);
+            this.button3.Location = new System.Drawing.Point(1049, 299);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 37);
             this.button3.TabIndex = 4;
-            this.button3.Text = "south america";
+            this.button3.Text = "South America";
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
@@ -168,22 +170,44 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 37);
             this.button9.TabIndex = 11;
-            this.button9.Text = "north america";
+            this.button9.Text = "North America";
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // textBox2
             // 
             this.textBox2.InputType.Type = Wisej.Web.TextBoxType.Color;
-            this.textBox2.Location = new System.Drawing.Point(825, 55);
+            this.textBox2.LabelText = "Maximum color";
+            this.textBox2.Location = new System.Drawing.Point(64, 220);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(118, 30);
+            this.textBox2.Size = new System.Drawing.Size(118, 53);
             this.textBox2.TabIndex = 12;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // textBox3
+            // 
+            this.textBox3.InputType.Type = Wisej.Web.TextBoxType.Color;
+            this.textBox3.LabelText = "Minimum color";
+            this.textBox3.Location = new System.Drawing.Point(64, 126);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(118, 53);
+            this.textBox3.TabIndex = 13;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // textBox4
+            // 
+            this.textBox4.InputType.Type = Wisej.Web.TextBoxType.Color;
+            this.textBox4.LabelText = "Hover color";
+            this.textBox4.Location = new System.Drawing.Point(64, 307);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(118, 53);
+            this.textBox4.TabIndex = 14;
             // 
             // Page1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -198,7 +222,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.widget1);
             this.Name = "Page1";
-            this.Size = new System.Drawing.Size(1198, 556);
+            this.Size = new System.Drawing.Size(1304, 559);
             this.Load += new System.EventHandler(this.Page1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,5 +246,7 @@
         private Wisej.Web.Button button8;
         private Wisej.Web.Button button9;
         private Wisej.Web.TextBox textBox2;
+        private Wisej.Web.TextBox textBox3;
+        private Wisej.Web.TextBox textBox4;
     }
 }

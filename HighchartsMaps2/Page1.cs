@@ -26,9 +26,10 @@ public int index = 0;
             continentCoordinatesArray[6] = new int[] { 57, 2 }; //south america
 
             //set the color textbox so it is the same color as the initial continents color (green)
-            textBox2.Text = "#31784B";
-            //note that this causes the textBox2_TextChanged event to be fired when the page loads
-            //but that was gonna be fired anyways- default color os black, so it was setting the continents color to black on page load.
+            textBox2.Text = "#31784B";//max color dark green
+            textBox3.Text = "#BFCFAD";//min color light green
+            //note that this causes the textBox2_TextChanged event and textBox3_TextChanged to be fired when the page loads
+            //but that was gonna be fired anyways- default color is black, so it was setting the continents color to black on page load.
         }
 
         private void Page1_Load(object sender, EventArgs e)
@@ -242,13 +243,27 @@ public int index = 0;
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            //textbox to chsnge the color
+            //maximum color
+            //textbox to change the color
             AlertBox.Show("new color");
+            setContinentColor();
+
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            //minimum color
+            setContinentColor();
+        }
+
+        public void setContinentColor()
+        {
             //change continent color
             this.widget1.Options.colorAxis = new
             {
                 tickPixelInterval = 100,
-                minColor = "#BFCFAD",
+                minColor = textBox3.Text,
                 maxColor = textBox2.Text,
                 max = 1000
             };
