@@ -24,6 +24,11 @@ public int index = 0;
             continentCoordinatesArray[4] = new int[] { 50, -96 }; //arctic
             continentCoordinatesArray[5] = new int[] { 110, -33 };//north america
             continentCoordinatesArray[6] = new int[] { 57, 2 }; //south america
+
+            //set the color textbox so it is the same color as the initial continents color (green)
+            textBox2.Text = "#31784B";
+            //note that this causes the textBox2_TextChanged event to be fired when the page loads
+            //but that was gonna be fired anyways- default color os black, so it was setting the continents color to black on page load.
         }
 
         private void Page1_Load(object sender, EventArgs e)
@@ -233,6 +238,20 @@ public int index = 0;
             //north america
             int[] rotation = new[] { 110, -33 };
             this.widget1.Call("rotateMap", rotation);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            //textbox to chsnge the color
+            AlertBox.Show("new color");
+            //change continent color
+            this.widget1.Options.colorAxis = new
+            {
+                tickPixelInterval = 100,
+                minColor = "#BFCFAD",
+                maxColor = textBox2.Text,
+                max = 1000
+            };
         }
     }
 }
