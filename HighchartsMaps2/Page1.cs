@@ -290,25 +290,35 @@ public int index = 0;
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //background task test
+
+            switch(this.button6.Text)
+            {
+                case "Auto-rotate: ON":
+                    this.button6.Text = "Auto-rotate: OFF";
+                    break;
+                case "Auto-rotate: OFF":
+                    this.button6.Text = "Auto-rotate: ON";
+                    break;
+                default://set to ON by default
+                    this.button6.Text = "Auto-rotate: ON";
+                    break;
+            }
+
             Application.StartTask(() =>
             {
-                // Change the text of button 1 from 1 to 10 in the background.
-                int i = 0;
-                while(true)
+
+
+                while(this.button6.Text == "Auto-rotate: ON")
                 {
-                    this.button6.Text = i.ToString();
-                    i++;
+
+                    SwitchContinent(); //auto switch continents
 
                     // We are running out-of-bound and we need to push the updates
                     // to the client using Application.Update(). It can be called at any time
                     // and interval. It simply flushes the changed back to the client.
-
-                    //auto switch continents
-                    SwitchContinent();
                     Application.Update(this);
 
-                    Thread.Sleep(2000);
+                    Thread.Sleep(2000); //wait 2 seconds
                 }
             });
         }
