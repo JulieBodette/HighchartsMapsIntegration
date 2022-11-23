@@ -199,7 +199,7 @@ public int index = 0;
 
         }
 
-        public void SwitchContinent(object sender, EventArgs e)
+        public void SwitchContinent()
         {
 
             int[] coords = continentCoordinatesArray[index];//coordinates of the current continent to show
@@ -303,9 +303,12 @@ public int index = 0;
                     // We are running out-of-bound and we need to push the updates
                     // to the client using Application.Update(). It can be called at any time
                     // and interval. It simply flushes the changed back to the client.
+
+                    //auto switch continents
+                    SwitchContinent();
                     Application.Update(this);
 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(2000);
                 }
             });
         }
