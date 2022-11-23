@@ -201,7 +201,7 @@ public int index = 0;
 
         }
 
-        public void SwitchContinent(object sender, EventArgs e)
+        public void SwitchContinent()
         {
 
             int[] coords = continentCoordinatesArray[index];//coordinates of the current continent to show
@@ -299,47 +299,22 @@ public int index = 0;
             //you can call Application.Update() at any time to push the UI updates to the client.
             
             Debug.WriteLine("thread");
-            //Thread thread1 = new Thread(ThreadWork.DoWork);
-            //thread1.Start();
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    Debug.WriteLine("In main.");
-            //    Thread.Sleep(100);
-            //}
             var current = Application.Current;
             var thread = new Thread(() => 
             {
-                Application.Update(current, () => 
+                for (int i = 0; i < 3; i++)
                 {
-
-                    // code here is running in context.
-                    for (int i = 0; i < 3; i++)
+                    Application.Update(current, () =>
                     {
-                        Debug.WriteLine("Working thread...");
-                        AlertBox.Show("hello");
-                        Thread.Sleep(100);
-                    }
-                });
+                        // code here is running in context.
+                            SwitchContinent();
+ 
+                    });
+                    Thread.Sleep(2000);
+                }
             });
             thread.Start(); 
         }
     }
-    //public class ThreadWork
-    //{
-    //    public static void DoWork()
-    //    {
-    //        Application.Update(Application.Current, () => {
 
-    //            // code here is running in context.
-
-            
-    //        for (int i = 0; i < 3; i++)
-    //        {
-    //            Debug.WriteLine("Working thread...");
-    //            AlertBox.Show("hello");
-    //            Thread.Sleep(100);
-    //        }
-    //        });
-    //    }
-    //}
 }
