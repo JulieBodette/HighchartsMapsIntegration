@@ -302,7 +302,7 @@ public int index = 0;
             var current = Application.Current;
             var thread = new Thread(() => 
             {
-                for (int i = 0; i < 3; i++)
+                while(true)
                 {
                     Application.Update(current, () =>
                     {
