@@ -297,12 +297,22 @@ public int index = 0;
             // unless you wrapped the call in Application.RunInContext().
             //When your code is running in context(either in -bound, or out -of bound for background tasks)
             //you can call Application.Update() at any time to push the UI updates to the client.
-            
-            Debug.WriteLine("thread");
+            switch (this.button6.Text)
+            {
+                case "Auto-rotate: ON":
+                    this.button6.Text = "Auto-rotate: OFF";
+                    break;
+                case "Auto-rotate: OFF":
+                    this.button6.Text = "Auto-rotate: ON";
+                    break;
+                default://set to ON by default
+                    this.button6.Text = "Auto-rotate: ON";
+                    break;
+            }
             var current = Application.Current;
             var thread = new Thread(() => 
             {
-                while(true)
+                while(this.button6.Text == "Auto-rotate: ON")
                 {
                     Application.Update(current, () =>
                     {
