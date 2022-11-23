@@ -48,6 +48,7 @@
             this.textBox2 = new Wisej.Web.TextBox();
             this.textBox3 = new Wisej.Web.TextBox();
             this.textBox4 = new Wisej.Web.TextBox();
+            this.button6 = new Wisej.Web.Button();
             this.SuspendLayout();
             // 
             // widget1
@@ -183,10 +184,20 @@
             this.textBox4.TabIndex = 14;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(64, 420);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(99, 39);
+            this.button6.TabIndex = 15;
+            this.button6.Text = "background task test";
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Page1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -201,7 +212,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.widget1);
             this.Name = "Page1";
-            this.Size = new System.Drawing.Size(1304, 559);
+            this.Size = new System.Drawing.Size(1329, 559);
             this.Load += new System.EventHandler(this.Page1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,5 +236,6 @@
         private Wisej.Web.TextBox textBox2;
         private Wisej.Web.TextBox textBox3;
         private Wisej.Web.TextBox textBox4;
+        private Wisej.Web.Button button6;
     }
 }

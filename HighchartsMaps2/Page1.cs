@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Dynamic;
 using System.IO;
+using System.Threading;
 using Wisej.Web;
 //using static System.Net.Mime.MediaTypeNames;
 
@@ -189,11 +190,11 @@ public int index = 0;
         private void button8_Click(object sender, EventArgs e)
         {
             //auto switch continents
-            AlertBox.Show("Beginning continent switching...");
-            Timer timer = new Timer();
-            timer.Interval = 1000; //1 second
-            timer.Tick += SwitchContinent;
-            timer.Start();
+            //AlertBox.Show("Beginning continent switching...");
+            //Timer timer = new Timer();
+            //timer.Interval = 1000; //1 second
+            //timer.Tick += SwitchContinent;
+            //timer.Start();
 
 
         }
@@ -285,6 +286,28 @@ public int index = 0;
                 }
 
             };
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //background task test
+            Application.StartTask(() =>
+            {
+                // Change the text of button 1 from 1 to 10 in the background.
+                int i = 0;
+                while(true)
+                {
+                    this.button6.Text = i.ToString();
+                    i++;
+
+                    // We are running out-of-bound and we need to push the updates
+                    // to the client using Application.Update(). It can be called at any time
+                    // and interval. It simply flushes the changed back to the client.
+                    Application.Update(this);
+
+                    Thread.Sleep(1000);
+                }
+            });
         }
     }
 }
