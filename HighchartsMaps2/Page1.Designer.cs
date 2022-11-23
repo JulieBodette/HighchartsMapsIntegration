@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page1));
-            Wisej.Web.Widget.Package package9 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package10 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package11 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package12 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package13 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package14 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package15 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package16 = new Wisej.Web.Widget.Package();
             this.widget1 = new Wisej.Web.Widget();
             this.label1 = new Wisej.Web.Label();
             this.button1 = new Wisej.Web.Button();
@@ -59,18 +59,18 @@
             this.widget1.Location = new System.Drawing.Point(248, 114);
             this.widget1.Name = "widget1";
             this.widget1.Options = ((Wisej.Core.DynamicObject)(Wisej.Core.WisejSerializer.Parse("{}")));
-            package9.Name = "highmaps";
-            package9.Source = "https://code.highcharts.com/maps/highmaps.js";
-            package10.Name = "data.";
-            package10.Source = "https://code.highcharts.com/maps/modules/data.js";
-            package11.Name = "exporting";
-            package11.Source = "https://code.highcharts.com/maps/modules/exporting.js";
-            package12.Name = "accessibility";
-            package12.Source = "https://code.highcharts.com/maps/modules/accessibility.js";
-            this.widget1.Packages.Add(package9);
-            this.widget1.Packages.Add(package10);
-            this.widget1.Packages.Add(package11);
-            this.widget1.Packages.Add(package12);
+            package13.Name = "highmaps";
+            package13.Source = "https://code.highcharts.com/maps/highmaps.js";
+            package14.Name = "data.";
+            package14.Source = "https://code.highcharts.com/maps/modules/data.js";
+            package15.Name = "exporting";
+            package15.Source = "https://code.highcharts.com/maps/modules/exporting.js";
+            package16.Name = "accessibility";
+            package16.Source = "https://code.highcharts.com/maps/modules/accessibility.js";
+            this.widget1.Packages.Add(package13);
+            this.widget1.Packages.Add(package14);
+            this.widget1.Packages.Add(package15);
+            this.widget1.Packages.Add(package16);
             this.widget1.Size = new System.Drawing.Size(751, 492);
             this.widget1.TabIndex = 0;
             this.widget1.Text = "widget1";
@@ -201,6 +201,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(118, 53);
             this.textBox4.TabIndex = 14;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // Page1
             // 

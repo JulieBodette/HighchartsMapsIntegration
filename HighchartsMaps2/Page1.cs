@@ -268,5 +268,49 @@ public int index = 0;
                 max = 1000
             };
         }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            //change hover color
+
+            //note: this is also reloading the graticule data (latitude and longitude lines)
+            //and the map data (data about each country, ie number of airports
+            this.widget1.Options.series = new dynamic[]
+            {
+                new
+                {
+                    name = "Graticule",
+                    id = "graticule",
+                    type = "mapline",
+                    data = new dynamic[] { },
+                    nullColor = "rgba(11,127,171,0.5",
+                    accessibility = new
+                    {
+                        enabled = false
+                    },
+                    enableMouseTracking= false
+                },
+                new
+                {
+                    data = getData(),
+                    joinBy="name",
+                    name="Airports per million km^2",
+                    states = new
+                    {
+                        hover = new
+                        {
+                            color = textBox4.Text,
+                            borderColor="#000000" //black
+                        }
+                    },
+                    dataLabels = new
+                    {
+                        enabled = false,
+                        format = "{point.name}"
+                    }
+                }
+
+            };
+        }
     }
 }
