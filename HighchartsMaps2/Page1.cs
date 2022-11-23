@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Dynamic;
 using System.IO;
+using System.Threading;
+using Wisej.Core;
 using Wisej.Web;
 //using static System.Net.Mime.MediaTypeNames;
 
@@ -188,12 +191,12 @@ public int index = 0;
 
         private void button8_Click(object sender, EventArgs e)
         {
-            //auto switch continents
-            AlertBox.Show("Beginning continent switching...");
-            Timer timer = new Timer();
-            timer.Interval = 1000; //1 second
-            timer.Tick += SwitchContinent;
-            timer.Start();
+            ////auto switch continents
+            //AlertBox.Show("Beginning continent switching...");
+            //Timer timer = new Timer();
+            //timer.Interval = 1000; //1 second
+            //timer.Tick += SwitchContinent;
+            //timer.Start();
 
 
         }
@@ -285,6 +288,35 @@ public int index = 0;
                 }
 
             };
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // If you started the thread using Thread.Start() instead,
+            // the code in the thread method wouldn't be able to access the objects in the session
+            // unless you wrapped the call in Application.RunInContext().
+            //When your code is running in context(either in -bound, or out -of bound for background tasks)
+            //you can call Application.Update() at any time to push the UI updates to the client.
+            
+            Debug.WriteLine("thread");
+            Thread thread1 = new Thread(ThreadWork.DoWork);
+            thread1.Start();
+            for (int i = 0; i < 3; i++)
+            {
+                Debug.WriteLine("In main.");
+                Thread.Sleep(100);
+            }
+        }
+    }
+    public class ThreadWork
+    {
+        public static void DoWork()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Debug.WriteLine("Working thread...");
+                Thread.Sleep(100);
+            }
         }
     }
 }
