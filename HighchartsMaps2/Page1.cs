@@ -322,5 +322,32 @@ public int index = 0;
                 }
             });
         }
+        private bool autoRotate = false;
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //toggle autorotate on/off
+            autoRotate = !autoRotate;
+
+            if(autoRotate)
+            {
+                Application.StartTask(() =>
+                {
+
+
+                    while (autoRotate)
+                    {
+
+                        SwitchContinent(); //auto switch continents
+
+                        // We are running out-of-bound and we need to push the updates
+                        // to the client using Application.Update(). It can be called at any time
+                        // and interval. It simply flushes the changed back to the client.
+                        Application.Update(this);
+
+                        Thread.Sleep(2000); //wait 2 seconds
+                    }
+                });
+            }
+        }
     }
 }
