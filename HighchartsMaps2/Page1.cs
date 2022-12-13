@@ -13,7 +13,6 @@ namespace HighchartsMaps2
     {
         public int[][] continentCoordinatesArray = new int[7][];//has 4 elements, each of which is a single-dimensional array of integers:
        
-
 public int index = 0;
         public Page1()
         {
@@ -35,6 +34,48 @@ public int index = 0;
 
         private void Page1_Load(object sender, EventArgs e)
         {
+
+            this.comboBox1.ValueMember = "ID"; //click value
+            this.comboBox1.DisplayMember = "Name"; //text to display
+            //set up the options in the combobox
+            this.comboBox1.Items.Add(
+                new
+            {
+                ID = 1,
+                Name = "Africa",
+            });
+            this.comboBox1.Items.Add(
+                new
+                {
+                    ID = 2,
+                    Name = "Arctic",
+                });
+            this.comboBox1.Items.Add(
+                new
+                {
+                    ID = 3,
+                    Name = "Australia",
+                });
+            this.comboBox1.Items.Add(
+                new
+                {
+                    ID = 4,
+                    Name = "Europe",
+                });
+            this.comboBox1.Items.Add(
+                new
+                {
+                    ID = 5,
+                    Name = "North America",
+                });
+            this.comboBox1.Items.Add(
+                new
+                {
+                    ID = 6,
+                    Name = "South America",
+                });
+
+
             //set the chart title
             this.widget1.Options.title = new
             {
@@ -314,6 +355,12 @@ public int index = 0;
                     }
                 });
             }
+        }
+
+        private void comboBox1_SelectedItemChanged(object sender, EventArgs e)
+        {
+            AlertBox.Show("you selected a new item");
+
         }
     }
 }

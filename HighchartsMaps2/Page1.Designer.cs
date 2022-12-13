@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page1));
-            Wisej.Web.Widget.Package package5 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package6 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package7 = new Wisej.Web.Widget.Package();
-            Wisej.Web.Widget.Package package8 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package1 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package2 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package3 = new Wisej.Web.Widget.Package();
+            Wisej.Web.Widget.Package package4 = new Wisej.Web.Widget.Package();
             this.widget1 = new Wisej.Web.Widget();
             this.label1 = new Wisej.Web.Label();
             this.button1 = new Wisej.Web.Button();
@@ -48,6 +48,7 @@
             this.textBox3 = new Wisej.Web.TextBox();
             this.textBox4 = new Wisej.Web.TextBox();
             this.checkBox1 = new Wisej.Web.CheckBox();
+            this.comboBox1 = new Wisej.Web.ComboBox();
             this.SuspendLayout();
             // 
             // widget1
@@ -57,18 +58,18 @@
             this.widget1.Location = new System.Drawing.Point(248, 114);
             this.widget1.Name = "widget1";
             this.widget1.Options = ((Wisej.Core.DynamicObject)(Wisej.Core.WisejSerializer.Parse("{}")));
-            package5.Name = "highmaps";
-            package5.Source = "https://code.highcharts.com/maps/highmaps.js";
-            package6.Name = "data.";
-            package6.Source = "https://code.highcharts.com/maps/modules/data.js";
-            package7.Name = "exporting";
-            package7.Source = "https://code.highcharts.com/maps/modules/exporting.js";
-            package8.Name = "accessibility";
-            package8.Source = "https://code.highcharts.com/maps/modules/accessibility.js";
-            this.widget1.Packages.Add(package5);
-            this.widget1.Packages.Add(package6);
-            this.widget1.Packages.Add(package7);
-            this.widget1.Packages.Add(package8);
+            package1.Name = "highmaps";
+            package1.Source = "https://code.highcharts.com/maps/highmaps.js";
+            package2.Name = "data.";
+            package2.Source = "https://code.highcharts.com/maps/modules/data.js";
+            package3.Name = "exporting";
+            package3.Source = "https://code.highcharts.com/maps/modules/exporting.js";
+            package4.Name = "accessibility";
+            package4.Source = "https://code.highcharts.com/maps/modules/accessibility.js";
+            this.widget1.Packages.Add(package1);
+            this.widget1.Packages.Add(package2);
+            this.widget1.Packages.Add(package3);
+            this.widget1.Packages.Add(package4);
             this.widget1.Size = new System.Drawing.Size(751, 492);
             this.widget1.TabIndex = 0;
             this.widget1.Text = "widget1";
@@ -184,10 +185,21 @@
             this.checkBox1.Text = "Auto-rotate";
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = Wisej.Web.ComboBoxStyle.DropDownList;
+            this.comboBox1.LabelText = "Jump to Location";
+            this.comboBox1.Location = new System.Drawing.Point(1049, 114);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(120, 53);
+            this.comboBox1.TabIndex = 17;
+            this.comboBox1.SelectedItemChanged += new System.EventHandler(this.comboBox1_SelectedItemChanged);
+            // 
             // Page1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -202,7 +214,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.widget1);
             this.Name = "Page1";
-            this.Size = new System.Drawing.Size(1186, 462);
+            this.Size = new System.Drawing.Size(685, 651);
             this.Load += new System.EventHandler(this.Page1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,5 +238,6 @@
         private Wisej.Web.TextBox textBox3;
         private Wisej.Web.TextBox textBox4;
         private Wisej.Web.CheckBox checkBox1;
+        private Wisej.Web.ComboBox comboBox1;
     }
 }
