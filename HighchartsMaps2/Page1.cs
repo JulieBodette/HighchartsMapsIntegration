@@ -185,30 +185,6 @@ public int index = 0;
             return JSON.Parse(json).airportData; //gotta parse it into an object, then we can access airportData from it
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //australia
-            int[] rotation = new[] { -108, 21 };
-            this.widget1.Call("rotateMap", rotation);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Arctic
-            int[] rotation = new[] { 50, -96 };
-            this.widget1.Call("rotateMap", rotation);
-
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //south america
-            int[] rotation = new[] { 57, 2 };
-            this.widget1.Call("rotateMap", rotation); 
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -222,28 +198,6 @@ public int index = 0;
                     textOutline = "2px white"
                 }
             };
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            //Africa
-            int[] rotation = new[] { -21, 0 };
-            this.widget1.Call("rotateMap", rotation);
-
-        }
-
-
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            //auto switch continents
-            //AlertBox.Show("Beginning continent switching...");
-            //Timer timer = new Timer();
-            //timer.Interval = 1000; //1 second
-            //timer.Tick += SwitchContinent;
-            //timer.Start();
-
-
         }
 
         public void SwitchContinent()
@@ -397,7 +351,7 @@ public int index = 0;
                 case "{ ID = 7, Name = South America }":
                     rotation = new int[] { 57, 2 }; //south america
                     break;
-                default://north america
+                default://set to north america by default
                     rotation = new[] { 110, -33 };
                     break;
             }
