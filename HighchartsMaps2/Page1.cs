@@ -54,24 +54,30 @@ public int index = 0;
                 new
                 {
                     ID = 3,
-                    Name = "Australia",
+                    Name = "Asia",
                 });
             this.comboBox1.Items.Add(
                 new
                 {
                     ID = 4,
-                    Name = "Europe",
+                    Name = "Australia",
                 });
             this.comboBox1.Items.Add(
                 new
                 {
                     ID = 5,
-                    Name = "North America",
+                    Name = "Europe",
                 });
             this.comboBox1.Items.Add(
                 new
                 {
                     ID = 6,
+                    Name = "North America",
+                });
+            this.comboBox1.Items.Add(
+                new
+                {
+                    ID = 7,
                     Name = "South America",
                 });
 
@@ -359,12 +365,42 @@ public int index = 0;
 
         private void comboBox1_SelectedItemChanged(object sender, EventArgs e)
         {
+            //get the selected item and convert to string
             var x = comboBox1.SelectedItem;
             String s = x.ToString();
             AlertBox.Show("you selected a new item"+ comboBox1.SelectedItem.ToString());
 
-            //right now, goes to north america no matter what you select
+            //set to north america rotation
             int[] rotation = new[] { 110, -33 };
+
+
+            switch (s)
+            {
+                case "{ ID = 1, Name = Africa }":
+                    rotation = new int[] { -21, 0 }; //africa
+                    break;
+                case "{ ID = 2, Name = Arctic }":
+                    rotation = new int[] { 50, -96 }; //arctic
+                    break;
+                case "{ ID = 3, Name = Asia }":
+                    rotation = new int[] { -94, -27 };//asia
+                    break;
+                case "{ ID = 4, Name = Australia }":
+                    rotation = new int[] { -108, 21 }; //australia
+                    break;
+                case "{ ID = 5, Name = Europe }":
+                    rotation = new int[] { 5, -43 };//europe
+                    break;
+                case "{ ID = 6, Name = North America }":
+                    rotation = new int[] { 110, -33 };//north america
+                    break;
+                case "{ ID = 7, Name = South America }":
+                    rotation = new int[] { 57, 2 }; //south america
+                    break;
+                default://north america
+                    rotation = new[] { 110, -33 };
+                    break;
+            }
             this.widget1.Call("rotateMap", rotation);
         }
     }
