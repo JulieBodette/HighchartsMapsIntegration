@@ -359,8 +359,13 @@ public int index = 0;
 
         private void comboBox1_SelectedItemChanged(object sender, EventArgs e)
         {
-            AlertBox.Show("you selected a new item");
+            var x = comboBox1.SelectedItem;
+            String s = x.ToString();
+            AlertBox.Show("you selected a new item"+ comboBox1.SelectedItem.ToString());
 
+            //right now, goes to north america no matter what you select
+            int[] rotation = new[] { 110, -33 };
+            this.widget1.Call("rotateMap", rotation);
         }
     }
 }
