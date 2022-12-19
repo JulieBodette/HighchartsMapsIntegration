@@ -34,53 +34,8 @@ public int index = 0;
 
         private void Page1_Load(object sender, EventArgs e)
         {
-
-            this.comboBox1.ValueMember = "ID"; //click value
-            this.comboBox1.DisplayMember = "Name"; //text to display
-            //set up the options in the combobox
-            this.comboBox1.Items.Add(
-                new
-            {
-                ID = 1,
-                Name = "Africa",
-            });
-            this.comboBox1.Items.Add(
-                new
-                {
-                    ID = 2,
-                    Name = "Arctic",
-                });
-            this.comboBox1.Items.Add(
-                new
-                {
-                    ID = 3,
-                    Name = "Asia",
-                });
-            this.comboBox1.Items.Add(
-                new
-                {
-                    ID = 4,
-                    Name = "Australia",
-                });
-            this.comboBox1.Items.Add(
-                new
-                {
-                    ID = 5,
-                    Name = "Europe",
-                });
-            this.comboBox1.Items.Add(
-                new
-                {
-                    ID = 6,
-                    Name = "North America",
-                });
-            this.comboBox1.Items.Add(
-                new
-                {
-                    ID = 7,
-                    Name = "South America",
-                });
-
+            //add all the continent names to the combobox
+            this.comboBox1.Items.AddRange(new[] { "Africa", "Arctic", "Asia", "Australia", "Europe", "North America", "South America" });
 
             //set the chart title
             this.widget1.Options.title = new
@@ -210,7 +165,7 @@ public int index = 0;
                 index = 0;//reset the loop
             }
 
-            //move the map to the coords of curent continent
+            //move the map to the coords of current continent
             this.widget1.Call("rotateMap", coords);
         }
 
@@ -300,7 +255,6 @@ public int index = 0;
                 Application.StartTask(() =>
                 {
 
-
                     while (autoRotate)
                     {
 
@@ -319,36 +273,32 @@ public int index = 0;
 
         private void comboBox1_SelectedItemChanged(object sender, EventArgs e)
         {
-            //get the selected item and convert to string
-            var x = comboBox1.SelectedItem;
-            String s = x.ToString();
-            AlertBox.Show("you selected a new item"+ comboBox1.SelectedItem.ToString());
 
             //set to north america rotation
             int[] rotation = new[] { 110, -33 };
 
 
-            switch (s)
+            switch (comboBox1.Text)
             {
-                case "{ ID = 1, Name = Africa }":
+                case "Africa":
                     rotation = new int[] { -21, 0 }; //africa
                     break;
-                case "{ ID = 2, Name = Arctic }":
+                case "Arctic":
                     rotation = new int[] { 50, -96 }; //arctic
                     break;
-                case "{ ID = 3, Name = Asia }":
+                case "Asia":
                     rotation = new int[] { -94, -27 };//asia
                     break;
-                case "{ ID = 4, Name = Australia }":
+                case "Australia":
                     rotation = new int[] { -108, 21 }; //australia
                     break;
-                case "{ ID = 5, Name = Europe }":
+                case "Europe":
                     rotation = new int[] { 5, -43 };//europe
                     break;
-                case "{ ID = 6, Name = North America }":
+                case "North America":
                     rotation = new int[] { 110, -33 };//north america
                     break;
-                case "{ ID = 7, Name = South America }":
+                case "South America":
                     rotation = new int[] { 57, 2 }; //south america
                     break;
                 default://set to north america by default
